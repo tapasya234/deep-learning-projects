@@ -26,6 +26,11 @@ DEVICE = "mps"
 BOLD = f"\033[1m"
 RESET = f"\033[0m"
 
+SEED_VALUE = 42
+random.seed(SEED_VALUE)
+np.random.seed(SEED_VALUE)
+torch.manual_seed(SEED_VALUE)
+
 
 def generateData(
     meanClass0=[4.0, 20.0],
