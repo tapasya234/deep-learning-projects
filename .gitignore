@@ -1,2 +1,26 @@
-# Don't include scratch files used for quizzes
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+
+# Byte-compiled / optimized / DLL files #
+######################
+__pycache__/
+
+# Ignore input / output files #
+######################
+*.mp4
+*.avi
+# *jpg
+# *jpeg
+# *png
+
+# Ignore raw data needed to train Neural Nets #
+######################
+*ubyte
+*.gz
+
+
+# Scratch files used for quizzes #
+######################
 quizzes/
