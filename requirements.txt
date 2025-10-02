@@ -1,0 +1,14 @@
+wheel
+numpy
+scipy
+seaborn
+matplotlib
+matplotlib-inline
+scikit-image
+scikit-learn
+pandas
+torch
+torchinfo
+torchvision
+ucimlrepo
+requests
