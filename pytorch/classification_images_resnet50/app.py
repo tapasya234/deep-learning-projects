@@ -6,7 +6,7 @@ import ast
 
 from typing import List
 
-from PIL import Image, ImageFile
+from PIL import Image
 
 import matplotlib.pyplot as plt
 import numpy as np
