@@ -7,21 +7,12 @@ from data_path import DATA_PATH
 from dataclasses import dataclass
 from typing import Tuple
 
-
 import torch
 from torch import nn
 from torch import optim
-from torch.nn import functional as F
 from torchinfo import summary
 
-from torchvision import datasets, transforms as T
-from torch.utils.data import DataLoader
-
-import seaborn as sn
-from sklearn.metrics import confusion_matrix
-
 import matplotlib.pyplot as plt
-from matplotlib.ticker import MultipleLocator, FormatStrFormatter
 
 from multiprocessing.spawn import freeze_support
 
@@ -60,7 +51,6 @@ class DatasetConfig:
     NUM_CLASSES: int = 10
     BATCH_SIZE: int = 32
     NUM_WORKERS: int = 2
-    # NUM_WORKERS: int = 0
     DATA_ROOT: str = DATA_PATH + "/DATA_MNIST"
 
 
