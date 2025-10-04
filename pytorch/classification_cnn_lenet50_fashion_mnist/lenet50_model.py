@@ -19,25 +19,46 @@ from torch import nn
 
 
 class LeNet5(nn.Module):
-    def __init__(self, numClasses):
+    def __init__(self, numClasses: int, shouldUseBatchNorm: bool = False):
         super().__init__()
 
-        # Convolution Layers
-        self._body = nn.Sequential(
-            # First Convolution Layer.
-            #  Input size - (32, 32). Output Size - (28, 28)
-            nn.Conv2d(in_channels=1, out_channels=6, kernel_size=5),
-            # ReLU Activation Layer.
-            nn.ReLU(),
-            # Max Pool 2-d.
-            nn.MaxPool2d(kernel_size=2),
-            # Second Convolution Layer.
-            # Input size - (14,14) Output size - (10,10)
-            nn.Conv2d(in_channels=6, out_channels=16, kernel_size=5),
-            nn.ReLU(),
-            nn.MaxPool2d(kernel_size=2),
-            # Output size - (5, 5)
-        )
+        if shouldUseBatchNorm:
+            # Convolution Layers
+            self._body = nn.Sequential(
+                # First Convolution Layer.
+                #  Input size - (32, 32). Output Size - (28, 28)
+                nn.Conv2d(in_channels=1, out_channels=6, kernel_size=5),
+                # Batch Normalisation Layer.
+                nn.BatchNorm2d(6),
+                # ReLU Activation Layer.
+                nn.ReLU(),
+                # Max Pool 2-d.
+                nn.MaxPool2d(kernel_size=2),
+                # Second Convolution Layer.
+                # Input size - (14,14) Output size - (10,10)
+                nn.Conv2d(in_channels=6, out_channels=16, kernel_size=5),
+                nn.BatchNorm2d(16),
+                nn.ReLU(),
+                nn.MaxPool2d(kernel_size=2),
+                # Output size - (5, 5)
+            )
+        else:
+            # Convolution Layers
+            self._body = nn.Sequential(
+                # First Convolution Layer.
+                #  Input size - (32, 32). Output Size - (28, 28)
+                nn.Conv2d(in_channels=1, out_channels=6, kernel_size=5),
+                # ReLU Activation Layer.
+                nn.ReLU(),
+                # Max Pool 2-d.
+                nn.MaxPool2d(kernel_size=2),
+                # Second Convolution Layer.
+                # Input size - (14,14) Output size - (10,10)
+                nn.Conv2d(in_channels=6, out_channels=16, kernel_size=5),
+                nn.ReLU(),
+                nn.MaxPool2d(kernel_size=2),
+                # Output size - (5, 5)
+            )
 
         # Fully connected layers.
         self._head = nn.Sequential(

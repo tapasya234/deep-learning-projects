@@ -24,15 +24,24 @@ def trainModel(
     trainDataLoader: DataLoader,
     validationDataLoader: DataLoader,
     trainingConfig: TrainingConfig,
+    shouldUseBatchNormalisationLayer: bool = False,
 ):
-    model = lenet50_model.LeNet5(numClasses=dataConfig.NUM_CLASSES)
-    # print(
-    #     summary(
-    #         model=model,
-    #         input_size=(1, 1),
-    #         row_settings=["var_names"],
-    #     )
-    # )
+    model = lenet50_model.LeNet5(
+        numClasses=dataConfig.NUM_CLASSES,
+        shouldUseBatchNorm=shouldUseBatchNormalisationLayer,
+    )
+    print(
+        summary(
+            model,
+            input_size=(1, 1, dataConfig.IMAGE_HEIGHT, dataConfig.IMAGE_HEIGHT),
+            row_settings=["var_names"],
+        )
+    )
+    savedModelName = (
+        "LeNet5_FashionMNIST_BatchNorm.pth"
+        if shouldUseBatchNormalisationLayer
+        else "LeNet5_FashionMNIST.pth"
+    )
 
     model = model.float().to(trainingConfig.DEVICE)
     optimiser = optim.SGD(model.parameters(), lr=trainingConfig.LEARNING_RATE)
@@ -80,7 +89,7 @@ def trainModel(
             bestWeights = copy.deepcopy(model.state_dict())
             torch.save(
                 model.state_dict(),
-                os.path.join(TrainingConfig.CHECKPOINT_DIR, "LeNet5_FashionMNIST.pth"),
+                os.path.join(TrainingConfig.CHECKPOINT_DIR, savedModelName),
             )
             print("Finished saving. \n")
 
@@ -117,7 +126,7 @@ def plotMetrics(
 
     plot_line_graphs.plot_results(
         [trainLoss, validationLoss],
-        yLabel="LossAccuracy",
+        yLabel="Loss",
         yLim=[0.0, 3.0],
         xLim=[0, maxLoss],
         metricName=["Training Loss", "Validation Loss"],
@@ -159,6 +168,7 @@ if __name__ == "__main__":
         trainDataLoader=trainDataLoader,
         validationDataLoader=validationDataLoader,
         trainingConfig=trainingConfig,
+        shouldUseBatchNormalisationLayer=True,
     )
 
     # trainedModel = lenet50_model.LeNet5(dataConfig.NUM_CLASSES)
