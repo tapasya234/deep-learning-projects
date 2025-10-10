@@ -9,6 +9,7 @@ scikit-learn
 pandas
 torch
 torchinfo
+torchmetrics
 torchvision
 ucimlrepo
 requests
