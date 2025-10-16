@@ -2,7 +2,6 @@ import os
 import requests
 import zipfile
 import glob
-import ast
 
 from typing import List
 
@@ -50,7 +49,7 @@ def getRequiredFiles():
 
 
 def getImagePaths() -> List:
-    return glob.glob(DATA_PATH + "dataset_image_classification_cnn/*.jpg")
+    return glob.glob(DATA_PATH + "input/*.jpg")
 
 
 def loadModel():
