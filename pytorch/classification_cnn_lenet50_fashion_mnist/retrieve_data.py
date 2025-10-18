@@ -15,7 +15,6 @@ def imagePreprocessTransforms(
         # Update order of channels from (H,W,C) to (C,H,W) and
         # normalize data to [0., 1.] by dividing it by 255.
         T.ToTensor(),
-        #
     ]
 
     if mean is not None or stdDev is not None:
