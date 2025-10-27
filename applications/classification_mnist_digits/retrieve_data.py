@@ -1,3 +1,4 @@
+import os
 import random
 import numpy as np
 
@@ -24,6 +25,9 @@ def getData(rootDir, batchSize, numWorkers=1):
             T.Normalize(mean=[0.1307], std=[0.3081]),
         ]
     )
+
+    if not os.path.exists(rootDir):
+        os.makedirs(rootDir)
 
     # Training set
     trainDataset = datasets.MNIST(

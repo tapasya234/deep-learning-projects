@@ -2,5 +2,5 @@ import os
 
 DATA_PATH = os.path.join(
     os.getcwd(),
-    "pytorch/classification_mnist_digits/",
+    "deep-learning-projects/applications/classification_mnist_digits/",
 )

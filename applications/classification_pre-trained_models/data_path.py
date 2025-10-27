@@ -2,5 +2,5 @@ import os
 
 DATA_PATH = os.path.join(
     os.getcwd(),
-    "pytorch/classification_pre-trained_models/",
+    ""deep-learning-projects/applications/classification_pre-trained_models/",
 )
