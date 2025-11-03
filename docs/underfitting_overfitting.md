@@ -139,6 +139,10 @@ A good model fit lies at the optimal balance between underfitting and overfittin
 - Analyzing validation metrics such as accuracy, precision, recall or mean squared error helps evaluate how well the model generalizes to unseen data.
 - A good fit model carefully balances model complexity, training data and regularization techniques to generalize well to new data and provide accurate predictions.
 
+## Process of training a model
+
+![The training process of a model, when considering bias and variance](training-model-process-bias-variance.png)
+
 ## Sources
 
 <https://www.geeksforgeeks.org/machine-learning/underfitting-and-overfitting-in-machine-learning/>
