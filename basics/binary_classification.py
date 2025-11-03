@@ -168,7 +168,7 @@ def trainModel(
             logits = model(batchedData)
             loss = F.binary_cross_entropy_with_logits(logits, batchedTargets)
 
-            # Compute fradients with back propagation.
+            # Compute gradients with back propagation.
             loss.backward()
 
             # Update model weights
