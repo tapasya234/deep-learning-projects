@@ -43,7 +43,7 @@ For example, imagine fitting a very complicated curve to a set of points. The cu
 
 - High variance and low bias.
 - The model is too complex.
-- The size or noise of the training data.
+- A small training dataset or a noisy dataset.
 
 ### The signs of an overfitted model
 
@@ -58,9 +58,29 @@ Regularization for regression models or dropout in neural networks, is a techniq
 
 Common types of regularization include L1, which encourages sparsity by shrinking some coefficients to zero and L2, which reduces the size of all coefficients to make the model simpler and more generalizable.
 
-#### Data augmentation
+Things to know about dropout:
 
-Data augmentation is another effective strategy, especially in tasks such as computer vision, where artificially expanding the training data by flipping, rotating or cropping images helps the model generalize better. Simplifying the model by reducing the number of parameters or layers in a neural network also limits its ability to memorize training data details.
+- Training is 2-3x slower.
+- Use 10-100x learning rate.
+- Use high momentum of 0.95 - 0.99
+- Use max-norm regularisation.
+- Dropout rate(p) should be:
+  - Hidden layers: 0.5 - 0.8
+  - Input layer: >= 0.8
+
+#### Batch Normalisation
+
+Batch norm is similar to regularisation in the sense that it multiples each hidden unit by a random value at each step of training. In this case, the hidden value is the standard deviation of all the hidden units in the minibatch. Because different examples are choosen for inclusion in the minibatch at each step, the std dev randomly flucuates.
+
+Batch norm also subtracts a random value(mean of the mini batch) from each hidden unit at each step.
+
+Both of these sources of noise mean that every layer has to learn to be robust to a lot of variation in its input, just like with dropout.
+
+#### Gather more data
+
+- Data augmentation is another effective strategy, especially in tasks such as computer vision, where artificially expanding the training data by flipping, rotating or cropping images helps the model generalize better. Simplifying the model by reducing the number of parameters or layers in a neural network also limits its ability to memorize training data details.
+- Collect more data
+- Synthesise more data
 
 #### K-fold cross-validation
 
