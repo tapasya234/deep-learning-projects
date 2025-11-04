@@ -1,4 +1,3 @@
-from turtle import forward
 from torch import nn
 
 # LeNet5 network has two convolutional layers and three fully connected layers.
