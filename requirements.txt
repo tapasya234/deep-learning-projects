@@ -13,3 +13,4 @@ torchmetrics
 torchvision
 ucimlrepo
 requests
+d2l
