@@ -1,5 +1,6 @@
 # CNN Architecture
 
+<!-- Copied from Reddit, need to gather more info and update it -->
 Any advice for how to go about designing CNN architecture?
 Discussion
 When should you add another convolutional layer?
