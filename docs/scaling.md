@@ -10,11 +10,7 @@ Normalisation and Standardisation are two common techniques used to scale data, 
 
 Normalisation typically refers to scaling the data to a fixed range, usually [0, 1] or [-1, 1]. This is often done using the min-max scaling method, where each feature is scale to the range [0,1].
 
-```
-                x(i) - min(x(i))
-    x(i) =  ------------------------
-              max(x(i)) - min(x(i))
-```
+$$x_i = \frac{x_i - min(x_i)}{max(x_i) - min(x_i)}$$
 
 ### When to Use Normalisation
 
@@ -30,11 +26,7 @@ When training a CNN for image classification, normalizing the pixel values can h
 
 Standardising  assumes the original data is normally distributed and scales the feature to have zero mean and a standard deviation of 1. This is accomplished for each feature (x(i))  by subtracting the mean of the feature data from each data point (referred to as mean subtraction) and then dividing that result by the standard deviation for the feature data as shown below:
 
-```
-                x(i) - mean(x(i))
-    x(i) =  ------------------------
-                  std-dev(x(i))
-```
+$$x_i = \frac{x_i - mean(x_i)}{\sigma(x_i)}$$
 
 ### When to Use Standardisation
 
