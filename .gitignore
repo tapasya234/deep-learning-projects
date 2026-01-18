@@ -23,6 +23,7 @@ __pycache__/
 ######################
 *ubyte
 *.gz
+data/
 
 
 # Scratch files used for quizzes #
