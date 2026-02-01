@@ -15,3 +15,4 @@ ucimlrepo
 requests
 d2l
 opencv-contrib-python
+tensorboard
